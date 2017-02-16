@@ -1,16 +1,12 @@
 package com.example.j14013.postservice;
 
 import android.Manifest;
-import android.app.Activity;
-import android.app.Service;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -35,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         //LocationManager
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 
+
         b1 = (Button) findViewById(R.id.button);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,11 +39,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
                 Log.d("ボタン", "OK");
 
-                //AsyncHttp post = new AsyncHttp("Android", 10.11);
-                //post.execute();
-
                 locationStart();
 
+                //AsyncHttp post = new AsyncHttp("Android", 10.11);
                 AsyncHttp post = new AsyncHttp(lat, lng);
                 post.execute();
             }
